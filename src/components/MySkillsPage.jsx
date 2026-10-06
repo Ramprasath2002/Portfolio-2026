@@ -13,13 +13,20 @@ import BigTitle from '../subComponents/BigTitlte'
 const Box = styled.div`
 background-color: ${props => props.theme.body};
 width: 100vw;
-height:100vh;
+min-height: 100vh;
+height: auto;
 position: relative;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
 
-
+@media (max-width: 768px) {
+  flex-direction: column;
+  padding: 5.5rem 0 4rem 0;
+  gap: 2rem;
+  overflow-y: auto;
+  height: auto;
+}
 `
 
 const Main = styled.div`
@@ -27,8 +34,8 @@ border: 2px solid ${props => props.theme.text};
 color: ${props => props.theme.text};
 background-color: ${props => props.theme.body};
 padding: 2rem;
-width: 30vw;
-height: 60vh;
+width: 32vw;
+min-height: 65vh;
 z-index:3;
 line-height: 1.5;
 cursor: pointer;
@@ -42,13 +49,20 @@ justify-content: space-between;
     color: ${props => props.theme.body};
     background-color: ${props => props.theme.text};
 }
+
+@media (max-width: 768px) {
+  width: 84vw;
+  min-height: auto;
+  height: auto;
+  padding: 1.5rem;
+}
 `
 
 const Title = styled.h2`
 display: flex;
 justify-content: center;
 align-items: center;
-font-size: calc(1em + 1vw);
+font-size: calc(1em + 0.8vw);
 
 ${Main}:hover &{
     &>*{
@@ -63,22 +77,21 @@ margin-right: 1rem;
 
 const Description = styled.div`
 color: ${props => props.theme.text};
-font-size: calc(0.6em + 1vw);
-padding: 0.5rem 0;
-
+font-size: calc(0.55em + 0.5vw);
+padding: 0.35rem 0;
 
 ${Main}:hover &{
-   
-        color:${props => props.theme.body};
-    
+    color:${props => props.theme.body};
 }
 
 strong{
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
+    display: block;
 }
 ul,p{
-    margin-left: 2rem;
+    margin-left: 1.5rem;
+    line-height: 1.5;
 }
 `
 
@@ -93,50 +106,42 @@ const MySkillsPage = () => {
 <ParticleComponent theme='light' />
             <Main>
 <Title>
-    <Design width={40} height={40} /> Designer
+    <Design width={36} height={36} /> Front-End & Performance
 </Title>
 <Description>
-I love to create design which speaks, Keep it clean, minimal and simple.
+I specialize in building responsive, accessible (WCAG) and high-speed web apps with modern JavaScript and React/Next.js ecosystem.
 </Description>
 <Description>
-<strong>I like to Design</strong>
-<ul>
-    <li>
-        Web Design
-    </li>
-    <li>
-        Mobile Apps
-    </li>
-</ul>
+<strong>Languages & Frameworks</strong>
+<p>
+JavaScript (ES6+), TypeScript, React.js, Next.js, HTML5, CSS3, SCSS/SASS, Bootstrap, Angular.js, Vue.js
+</p>
 </Description>
 <Description>
-<strong>Tools</strong>
-<ul>
-    <li>
-       Figma
-    </li>
-    
-</ul>
+<strong>Performance & Optimization</strong>
+<p>
+Core Web Vitals (LCP, FID, CLS), Code Splitting, Lazy Loading, Image Optimization, Responsive Design & Cross-Browser Compatibility
+</p>
 </Description>
 
             </Main>
             <Main>
 <Title>
-    <Develope width={40} height={40} /> Frontend Developer
+    <Develope width={36} height={36} /> Full-Stack & Engineering
 </Title>
 <Description>
-I value business or brand for which i'm creating, thus i enjoy bringing new ideas to life.
+End-to-end web engineering, backend integration, API development, SEO automation, and continuous delivery.
 </Description>
 <Description>
-<strong>Skills</strong>
+<strong>Web Tech & Backend</strong>
 <p>
-Html, Css, Js, React, Redux, Sass, Bootstrap, Tailwind, Firebase etc.
+Node.js, RESTful APIs, WordPress, Headless CMS (Ghost), Progressive Web Apps (PWA), Web Accessibility (WCAG), SQL Server
 </p>
 </Description>
 <Description>
-<strong>Tools</strong>
+<strong>DevOps, SEO & Tools</strong>
 <p>
-VScode, Github, Codepen etc.
+Git, GitHub, GitLab, CI/CD, VS Code, Google Search Console, Google Analytics, Google Tag Manager (GTM), Schema Markup
 </p>
 </Description>
 

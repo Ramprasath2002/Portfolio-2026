@@ -52,6 +52,13 @@
       "opacity": 0.4,
       "width": 1
     },
+    "links": {
+      "enable": true,
+      "distance": 150,
+      "color": "#000000",
+      "opacity": 0.4,
+      "width": 1
+    },
     "move": {
       "enable": true,
       "speed": 6,

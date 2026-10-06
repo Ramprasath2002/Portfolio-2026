@@ -32,13 +32,36 @@ const Center = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-padding-top: 10rem;
+padding-top: 8rem;
+padding-left: calc(5rem + 2vw);
+padding-right: calc(5rem + 2vw);
+padding-bottom: 5rem;
+width: 100%;
+
+@media (max-width: 768px) {
+  padding-top: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 `
 
 const Grid = styled.div`
 display: grid;
-grid-template-columns: repeat(2, minmax(calc(10rem + 15vw), 1fr));
-grid-gap: calc(1rem + 2vw);
+grid-template-columns: repeat(2, minmax(18rem, 24rem));
+grid-gap: calc(1.5rem + 2vw);
+justify-content: center;
+align-content: center;
+margin: 0 auto;
+
+@media (max-width: 950px) {
+  grid-template-columns: minmax(18rem, 26rem);
+}
+
+@media (max-width: 768px) {
+  grid-template-columns: 100%;
+  width: 86vw;
+  grid-gap: 1.5rem;
+}
 `
 
 // Framer-motion config

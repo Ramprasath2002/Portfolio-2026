@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import React from "react";
 // import { NavLink } from 'react-router-dom'
 import styled from "styled-components";
-import { Facebook, Github, Twitter, YouTube } from "../components/AllSvgs";
+import { Github, Twitter, Facebook, YouTube, Linkedin } from "../components/AllSvgs";
 import { DarkTheme } from "../components/Themes";
 
 const Icons = styled.div`
@@ -19,6 +19,17 @@ const Icons = styled.div`
   & > *:not(:last-child) {
     margin: 0.5rem 0;
   }
+
+  @media (max-width: 768px) {
+    left: 0.8rem;
+    & > *:not(:last-child) {
+      margin: 0.35rem 0;
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 `;
 
 const Line = styled(motion.span)`
@@ -26,6 +37,10 @@ const Line = styled(motion.span)`
   height: 8rem;
   background-color: ${(props) =>
     props.$color === "dark" ? DarkTheme.text : DarkTheme.body};
+
+  @media (max-width: 768px) {
+    height: 4rem;
+  }
 `;
 
 const SocialIcons = (props) => {
@@ -39,7 +54,9 @@ const SocialIcons = (props) => {
         <a
           style={{ color: "inherit" }}
           target="_blank"
-          href={"https://github.com/codebucks27"}
+          rel="noreferrer"
+          href={"https://github.com/ramprasathdevelop"}
+          title="GitHub"
         >
           <Github
             width={25}
@@ -56,9 +73,11 @@ const SocialIcons = (props) => {
         <a
           style={{ color: "inherit" }}
           target="_blank"
-          href={"https://twitter.com/code_bucks"}
+          rel="noreferrer"
+          href={"https://www.linkedin.com/in/ramprasathdevelop"}
+          title="LinkedIn"
         >
-          <Twitter
+          <Linkedin
             width={25}
             height={25}
             fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
@@ -73,30 +92,23 @@ const SocialIcons = (props) => {
         <a
           style={{ color: "inherit" }}
           target="_blank"
-          href={"https://facebook.com/codebucks27"}
+          rel="noreferrer"
+          href={"mailto:ramprasathdevelop@gmail.com"}
+          title="Email"
         >
-          <Facebook
-            width={25}
-            height={25}
-            fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
-          />
-        </a>
-      </motion.div>
-      <motion.div
-        initial={{scale:0 }}
-        animate={{ scale: [0, 1, 1.5, 1] }}
-        transition={{ type: "spring", duration: 1, delay: 1.6 }}
-      >
-        <a
-          style={{ color: "inherit" }}
-          target="_blank"
-          href={"https://youtube.com"}
-        >
-          <YouTube
-            width={25}
-            height={25}
-            fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
-          />
+          <svg
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
         </a>
       </motion.div>
 

@@ -35,6 +35,17 @@ cursor: pointer;
     text-decoration: none;
     color: inherit;
 }
+
+@media (max-width: 768px) {
+    top: 1rem;
+    width: 2.1rem;
+    height: 2.1rem;
+    padding: 0.2rem;
+    svg {
+        width: 22px;
+        height: 22px;
+    }
+}
 `
 
 const PowerButton = () => {

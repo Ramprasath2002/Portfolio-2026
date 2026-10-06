@@ -29,6 +29,12 @@ const Main = styled(motion.ul)`
   display: flex;
 
   color: white;
+
+  @media (max-width: 768px) {
+    top: 6.5rem;
+    left: 1.5rem;
+    height: auto;
+  }
 `;
 const Rotate = styled.span`
   display: block;
@@ -38,6 +44,17 @@ const Rotate = styled.span`
   width: 80px;
   height: 80px;
   z-index: 1;
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    svg {
+      width: 50px;
+      height: 50px;
+    }
+  }
 `;
 
 // Framer-motion Configuration

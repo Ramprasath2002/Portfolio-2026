@@ -33,30 +33,72 @@ img{
     width: 100%;
     height: auto;
 }
+
+@media (max-width: 768px) {
+  top: 6%;
+  right: 5%;
+  width: 28vw;
+  opacity: 0.25;
+}
 `
 const Main =  styled.div`
   border: 2px solid ${(props) => props.theme.text};
   color: ${(props) => props.theme.text};
   padding: 2rem;
-  width: 50vw;
-  height: 60vh;
+  width: 55vw;
+  max-height: 65vh;
   z-index: 3;
-  line-height: 1.5;
+  line-height: 1.6;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  font-size: calc(0.6rem + 1vw);
- backdrop-filter: blur(4px);
+  align-items: flex-start;
+  font-size: calc(0.65rem + 0.6vw);
+  backdrop-filter: blur(4px);
+  overflow-y: auto;
   
   position: absolute;
   left: calc(5rem + 5vw);
-  top: 10rem;
+  top: 9rem;
   font-family: 'Ubuntu Mono', monospace;
-  font-style: italic;
+
+  @media (max-width: 768px) {
+    width: 86vw;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 5.5rem;
+    padding: 1.2rem;
+    max-height: 72vh;
+    font-size: 0.82rem;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${(props) => props.theme.text};
+  }
 `
 
+const ResumeLink = styled.a`
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid ${(props) => props.theme.text};
+  color: ${(props) => props.theme.body};
+  background-color: ${(props) => props.theme.text};
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 
-
+  &:hover {
+    background-color: transparent;
+    color: ${(props) => props.theme.text};
+  }
+`
 
 const AboutPage = () => {
     return (
@@ -72,11 +114,20 @@ const AboutPage = () => {
             <img src={astronaut} alt="spaceman" />
         </Spaceman>    
         <Main>
-        I'm a front-end developer located in India. I love to create simple yet beautiful websites with great user experience.
-<br /> <br/>
-I'm interested in the whole frontend stack Like trying new things and building great projects. I'm an independent freelancer and blogger. I love to write blogs and read books.
-<br/> <br/>
-I believe everything is an Art when you put your consciousness in it. You can connect with me via social links.
+          <p>
+            I'm a <strong>Software Engineer & Full-Stack Web Developer</strong> based in Bengaluru, India. I specialize in building responsive, high-performance web applications using React.js, Next.js, Node.js, and modern TypeScript.
+          </p>
+          <br/>
+          <p>
+            With professional experience at <strong>Athena Technology Solutions</strong> and <strong>Zibtek</strong>, I have a proven track record of boosting page load speeds by up to 35%, elevating search rankings by 25%, and engineering accessible (WCAG), SEO-optimized digital interfaces.
+          </p>
+          <br/>
+          <p>
+            I focus on Core Web Vitals optimization, scalable architectures, and clean code that balances user experience with business goals.
+          </p>
+          <ResumeLink href="/Ram_Prasath_Resume.pdf" target="_blank" rel="noreferrer" download="Ram_Prasath_Resume.pdf">
+            📄 Download Full Resume
+          </ResumeLink>
         </Main>
 
         <BigTitle text="ABOUT" top="10%" left="5%" />

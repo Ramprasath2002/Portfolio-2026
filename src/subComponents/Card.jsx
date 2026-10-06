@@ -7,11 +7,12 @@ import { Github } from '../components/AllSvgs';
 
 
 const Box = styled(motion.li)`
-width: 16rem;
-height: 40vh;
+width: 17rem;
+height: 44vh;
+min-height: 320px;
 background-color: ${props => props.theme.text};
 color:${props => props.theme.body};
-padding: 1.5rem 2rem;
+padding: 1.5rem 1.8rem;
 margin-right: 8rem;
 border-radius: 0 50px 0 50px;
 display: flex;
@@ -26,15 +27,25 @@ color:${props => props.theme.text};
 border: 1px solid ${props => props.theme.text};
 
 }
+
+@media (max-width: 768px) {
+  width: 76vw;
+  max-width: 290px;
+  height: auto;
+  min-height: 310px;
+  margin-right: 2.5rem;
+  padding: 1.2rem;
+}
 `
 const Title = styled.h2`
-font-size: calc(1em + 0.5vw);
+font-size: calc(0.95em + 0.4vw);
 `
 
 const Description = styled.h2`
-font-size: calc(0.8em + 0.3vw);
+font-size: calc(0.75em + 0.25vw);
 font-family: 'Karla',sans-serif;
 font-weight: 500;
+line-height: 1.45;
 `
 const Tags = styled.div`
 border-top: 2px solid ${props =>props.theme.body};

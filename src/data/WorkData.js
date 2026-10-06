@@ -1,63 +1,52 @@
-// work data
+// work data from Ram Prasath's resume
 
 export const Work = [
     {
         id:1,
-        name:"Agency Landing Page",
-        description:"It is build on top of the React JS, with styledComponents and GSAP for smooth scrolling animations.",
-        tags:["react","gsap","styledComponents"],
-        
-        demo:"https://agency-website-eta.vercel.app/",
-        github:"https://github.com/codebucks27/Agency-website"
+        name:"Marketing Platform Redesign",
+        description:"Led Next.js & React redesign. Boosted site speed by 35% via Core Web Vitals optimizations, lifting organic ranking 25% and leads by 30%.",
+        tags:["nextjs","react","core-web-vitals","seo"],
+        demo:"https://github.com/ramprasathdevelop",
+        github:"https://github.com/ramprasathdevelop"
     },
     {
         id:2,
-        name:"Job listing website",
-        description:"A Job listing website build in ReactJS. With searching and filtering functionalities.",
-        tags:["react","sass"],
-        
-        demo:"http://react-job-listing-website.codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/react-job-listing-website"
-        
+        name:"Athena Tech Next.js Migration",
+        description:"Migrated legacy WordPress website to high-performance Next.js. Engineered interactive UI components and integrated Node.js backend services.",
+        tags:["nextjs","react","nodejs","typescript"],
+        demo:"https://github.com/ramprasathdevelop",
+        github:"https://github.com/ramprasathdevelop"
     },
     {
         id:3,
-        name:"Dev.to Clone",
-        description:"A clone of Dev.to build using ReactJS. With realtime fetching of articles from dev.to using API.",
-        tags:["react","api","sass"],
-        
-        demo:"http://devto-clone-codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/devto-clone"
+        name:"Zibtek Cross-Browser Web Apps",
+        description:"Built responsive web apps with HTML5, CSS3, and ES6+. Cut page load time by 20% through DOM optimization and achieved full WCAG compliance.",
+        tags:["javascript","html5","css3","wcag"],
+        demo:"https://github.com/ramprasathdevelop",
+        github:"https://github.com/ramprasathdevelop"
     },
     {
         id:4,
-        name:"Sidebar Menu",
-        description:"A cool looking sidebar menu build using ReactJS and styledComponents.It has really smooth animations.",
-        tags:["react","styledComponents","react-router"],
-        
-        demo:"https://react-sidebar.vercel.app/",
-        github:"https://github.com/codebucks27/react-sidebar"
-       
-    },{
+        name:"Automation Scripting Platform",
+        description:"Interactive UI and workflows for automation scripting using ASP.NET, JavaScript, responsive UI components, and SQL Server.",
+        tags:["asp.net","javascript","sql-server","automation"],
+        demo:"https://github.com/ramprasathdevelop",
+        github:"https://github.com/ramprasathdevelop"
+    },
+    {
         id:5,
-        name:"Todo App(React + Redux)",
-        description:"A todo app build using Redux-toolkit and framer-motion for smooth animations.",
-        tags:["react","redux","framer-motion"],
-        
-        demo:"http://react-redux-todo-app-git-main-codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/React-Redux-Todo-App"
-        
+        name:"PatchLoader Application",
+        description:"Developed user workflows, form handling, data processing, and consistent UI design for enterprise PatchLoader software.",
+        tags:["asp.net","javascript","html5","validation"],
+        demo:"https://github.com/ramprasathdevelop",
+        github:"https://github.com/ramprasathdevelop"
     },
     {
         id:6,
-        name:"Responsive Navigation Menu",
-        description:"A reponsive navbar menu component in ReactJS with react-router functionalities. Built from scratch.",
-        tags:["react","react-router","css"],
-        
-        demo:"http://react-responsive-navbar-codebucks27.vercel.app/",
-        github:"https://github.com/codebucks27/React-responsive-navbar"
-        
-    },
-    
-  
+        name:"Headless CMS & PWA Platform",
+        description:"Built scalable Progressive Web App (PWA) powered by Next.js, Headless Ghost CMS, and RESTful APIs with advanced caching.",
+        tags:["nextjs","headless-cms","pwa","rest-api"],
+        demo:"https://github.com/ramprasathdevelop",
+        github:"https://github.com/ramprasathdevelop"
+    }
 ] 

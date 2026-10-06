@@ -4,6 +4,10 @@ import { Anchor, Link } from '../components/AllSvgs'
 
 const Container = styled.div`
 position: relative;
+
+@media (max-width: 768px) {
+  display: none;
+}
 `
 const Slider = styled.div`
 position: fixed;

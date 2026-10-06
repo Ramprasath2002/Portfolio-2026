@@ -7,7 +7,6 @@ import PowerButton from '../subComponents/PowerButton'
 import SocialIcons from '../subComponents/SocialIcons'
 import { YinYang } from './AllSvgs'
 import Intro from './Intro'
-;
 
 
 const MainContainer = styled.div`
@@ -26,15 +25,59 @@ h2,h3,h4,h5,h6{
 
 const Container = styled.div`
 padding: 2rem;
+
+@media (max-width: 768px) {
+  padding: 1rem;
+}
+`
+
+const TopRightGroup = styled.div`
+position: absolute;
+top: 2rem;
+right: calc(1rem + 2vw);
+display: flex;
+align-items: center;
+gap: 1.5rem;
+z-index: 1;
+
+@media (max-width: 768px) {
+  top: 1.1rem;
+  right: 0.8rem;
+  gap: 0.6rem;
+}
+`
+
+const ResumeBtn = styled.a`
+color: ${props => props.theme.text};
+text-decoration: none;
+border: 1.5px solid ${props => props.theme.text};
+padding: 0.35rem 0.9rem;
+border-radius: 20px;
+font-family: 'Karla', sans-serif;
+font-size: 0.95rem;
+font-weight: 600;
+transition: all 0.3s ease;
+
+&:hover{
+    background-color: ${props => props.theme.text};
+    color: ${props => props.theme.body};
+}
+
+@media (max-width: 768px) {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.78rem;
+}
 `
 
 const Contact = styled.a`
 color: ${props => props.theme.text};
-position: absolute;
-top: 2rem;
-right: calc(1rem + 2vw);
 text-decoration: none;
-z-index:1;
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 0.95rem;
+  }
+}
 `
 const BLOG = styled(NavLink)`
 color: ${props => props.theme.text};
@@ -44,6 +87,13 @@ right: calc(1rem + 2vw);
 transform: rotate(90deg) translate(-50%, -50%);
 text-decoration: none;
 z-index:1;
+
+@media (max-width: 768px) {
+  right: 0.3rem;
+  h2 {
+    font-size: 1.05rem;
+  }
+}
 `
 const WORK = styled(NavLink)`
 color: ${props => props.$click ? props.theme.body : props.theme.text};
@@ -54,6 +104,13 @@ left: calc(1rem + 2vw);
 transform: translate(-50%, -50%) rotate(-90deg) ;
 text-decoration: none;
 z-index:1;
+
+@media (max-width: 768px) {
+  left: 0.3rem;
+  h2 {
+    font-size: 1.05rem;
+  }
+}
 `
 
 const BottomBar = styled.div`
@@ -65,6 +122,13 @@ width: 100%;
 
 display: flex;
 justify-content: space-evenly;
+
+@media (max-width: 768px) {
+  bottom: 0.8rem;
+  h2 {
+    font-size: 1.05rem;
+  }
+}
 `
 
 const ABOUT = styled(NavLink)`
@@ -111,6 +175,16 @@ transition: all 1s ease;
     display: ${props => props.$click ? 'none' :'inline-block'  };
     padding-top: 1rem;
 }
+
+@media (max-width: 768px) {
+  top: ${props => props.$click ? '88%' : '50%'};
+  left: ${props => props.$click ? '88%' : '50%'};
+
+  svg {
+    width: ${props => props.$click ? '60px' : '120px'} !important;
+    height: ${props => props.$click ? '60px' : '120px'} !important;
+  }
+}
 `
 
 const DarkDiv = styled.div`
@@ -130,7 +204,23 @@ const Main = () => {
 
     const [click, setClick] = useState(false);
 
-    const handleClick = () => setClick(!click);
+    const handleClick = () => {
+        const nextState = !click;
+        setClick(nextState);
+
+        if (nextState) {
+            const elem = document.documentElement;
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen().catch(() => {});
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+        }
+    };
 
     return (
         <MainContainer>
@@ -140,28 +230,32 @@ const Main = () => {
             <LogoComponent theme={click ? 'dark' :'light'}/>
             <SocialIcons theme={click ? 'dark' :'light'} />
 
-            <Center $click={click}>
-                <YinYang  onClick={()=> handleClick()} width={click ? 120 : 200} height={click ? 120 : 200} fill='currentColor' />
+            <Center $click={click} onClick={handleClick}>
+                <YinYang width={click ? 120 : 200} height={click ? 120 : 200} fill='currentColor' />
                 <span>click here</span>
             </Center>
 
-            <Contact target="_blank" href="mailto:codebucks27@gmail.com">
-                <motion.h2
-                initial={{
-                    y:-200,
-                    transition: { type:'spring', duration: 1.5, delay:1}
-                }}
-                animate={{
-                    y:0,
-                    transition: { type:'spring', duration: 1.5, delay:1}
-                }}
-                whileHover={{scale: 1.1}}
-                whileTap={{scale: 0.9}}
-                
-                >
-                    Say hi..
-                </motion.h2>
-            </Contact>
+            <TopRightGroup>
+                <ResumeBtn href="/Ram_Prasath_Resume.pdf" target="_blank" rel="noreferrer" download="Ram_Prasath_Resume.pdf">
+                    Resume
+                </ResumeBtn>
+                <Contact target="_blank" href="mailto:ramprasathdevelop@gmail.com">
+                    <motion.h2
+                    initial={{
+                        y:-200,
+                        transition: { type:'spring', duration: 1.5, delay:1}
+                    }}
+                    animate={{
+                        y:0,
+                        transition: { type:'spring', duration: 1.5, delay:1}
+                    }}
+                    whileHover={{scale: 1.1}}
+                    whileTap={{scale: 0.9}}
+                    >
+                        Say hi..
+                    </motion.h2>
+                </Contact>
+            </TopRightGroup>
             <BLOG to="/blog">
                 <motion.h2
                 initial={{
