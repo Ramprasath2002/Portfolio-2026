@@ -29,6 +29,19 @@ const FullScreenBtn = styled.button`
   svg {
     color: #000;
   }
+
+  @media (max-width: 768px) {
+    top: 1rem;
+    left: auto;
+    right: 4.8rem;
+    width: 2.1rem;
+    height: 2.1rem;
+    padding: 0.2rem;
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
 `
 
 const FullScreenButton = () => {

@@ -75,18 +75,34 @@ const WorkPage = () => {
   const yinyang = useRef(null);
 
   useEffect(() => {
-    let element = ref.current;
+    window.scrollTo(0, 0);
+    const element = ref.current;
 
-    const rotate = () => {
-      element.style.transform = `translateX(${-window.pageYOffset}px)`;
+    const handleScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollHeight > 0 ? Math.min(1, Math.max(0, scrollY / scrollHeight)) : 0;
 
-      return (yinyang.current.style.transform =
-        "rotate(" + -window.pageYOffset + "deg)");
+      if (element) {
+        const totalWidth = element.scrollWidth;
+        const viewportWidth = window.innerWidth;
+        const maxScroll = Math.max(0, totalWidth - viewportWidth + (window.innerWidth <= 768 ? 60 : 250));
+        const translateX = -progress * maxScroll;
+        element.style.transform = `translateX(${translateX}px)`;
+      }
+
+      if (yinyang.current) {
+        yinyang.current.style.transform = `rotate(${-scrollY * 0.8}deg)`;
+      }
     };
 
-    window.addEventListener("scroll", rotate);
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
     return () => {
-      window.removeEventListener("scroll", rotate);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 

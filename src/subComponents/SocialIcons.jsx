@@ -21,13 +21,13 @@ const Icons = styled.div`
   }
 
   @media (max-width: 768px) {
-    left: 0.8rem;
+    left: 0.6rem;
     & > *:not(:last-child) {
-      margin: 0.35rem 0;
+      margin: 0.25rem 0;
     }
     svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
   }
 `;
@@ -39,7 +39,7 @@ const Line = styled(motion.span)`
     props.$color === "dark" ? DarkTheme.text : DarkTheme.body};
 
   @media (max-width: 768px) {
-    height: 4rem;
+    height: 2.2rem;
   }
 `;
 
@@ -118,12 +118,24 @@ const SocialIcons = (props) => {
           height: 0,
         }}
         animate={{
-          height: "8rem",
+          height: typeof window !== 'undefined' && window.innerWidth <= 768 ? "2.2rem" : "8rem",
         }}
         transition={{
           type: "spring",
           duration: 1,
           delay: 0.8,
+        }}
+      />
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.5, delay: 1.2 }}
+        style={{
+          width: '7px',
+          height: '7px',
+          borderRadius: '50%',
+          backgroundColor: '#FF5500',
+          boxShadow: '0 0 8px rgba(255, 85, 0, 0.7)',
         }}
       />
     </Icons>
