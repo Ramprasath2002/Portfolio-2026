@@ -803,6 +803,20 @@ const Main = () => {
     const [click, setClick] = useState(false);
 
     const handleClick = () => {
+        if (!click) {
+            const elem = document.documentElement;
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen().catch(() => {});
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.mozRequestFullScreen) {
+                    elem.mozRequestFullScreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+        }
         setClick(!click);
     };
 
@@ -820,8 +834,8 @@ const Main = () => {
                     <ResumeBtn
                         href="/Ram_Prasath_Resume.pdf"
                         target="_blank"
-                        rel="noreferrer"
-                        download="Ram_Prasath_Resume.pdf"
+                        rel="noopener noreferrer"
+                        title="Preview Resume"
                     >
                         <span className="dot" /> Resume
                     </ResumeBtn>
