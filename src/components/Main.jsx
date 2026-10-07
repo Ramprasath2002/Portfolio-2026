@@ -526,6 +526,11 @@ transform: translate(-50%, -50%);
 border: none;
 outline: none;
 background-color: transparent;
+color: #000000;
+fill: #000000;
+-webkit-appearance: none;
+appearance: none;
+-webkit-tap-highlight-color: transparent;
 cursor: pointer;
 z-index: 10;
 
@@ -962,7 +967,7 @@ const Main = () => {
                 {/* Center Controller: Smooth Yin-Yang Orb */}
                 <Center $click={click} onClick={handleClick} title={click ? "Close intro" : "Click to view intro"}>
                     <div className="halo">
-                        <YinYang width={click ? 120 : 140} height={click ? 120 : 140} fill="currentColor" />
+                        <YinYang width={click ? 120 : 140} height={click ? 120 : 140} fill="#000000" />
                     </div>
 
                     <div className="click-prompt">

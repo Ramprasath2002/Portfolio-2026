@@ -47,7 +47,7 @@ const SocialIcons = (props) => {
   return (
     <Icons>
       <motion.div
-        initial={{scale:0 }}
+        initial={{ scale: 0 }}
         animate={{ scale: [0, 1, 1.5, 1] }}
         transition={{ type: "spring", duration: 1, delay: 1 }}
       >
@@ -55,7 +55,7 @@ const SocialIcons = (props) => {
           style={{ color: "inherit" }}
           target="_blank"
           rel="noreferrer"
-          href={"https://github.com/ramprasathdevelop"}
+          href={"https://github.com/Ramprasath2002"}
           title="GitHub"
         >
           <Github
@@ -66,7 +66,7 @@ const SocialIcons = (props) => {
         </a>
       </motion.div>
       <motion.div
-        initial={{scale:0 }}
+        initial={{ scale: 0 }}
         animate={{ scale: [0, 1, 1.5, 1] }}
         transition={{ type: "spring", duration: 1, delay: 1.2 }}
       >
@@ -85,7 +85,7 @@ const SocialIcons = (props) => {
         </a>
       </motion.div>
       <motion.div
-        initial={{scale:0 }}
+        initial={{ scale: 0 }}
         animate={{ scale: [0, 1, 1.5, 1] }}
         transition={{ type: "spring", duration: 1, delay: 1.4 }}
       >

@@ -41,18 +41,19 @@ border-right: 2px solid ${props => props.theme.text};
 z-index: 2;
 
 @media (max-width: 768px) {
-    width: 76vw;
+    width: 82vw;
     height: 54vh;
 }
 
 @media (max-width: 480px) {
-    width: 74vw;
+    width: 82vw;
     height: 52vh;
 }
 `
 
 const SubBox = styled.div`
 width: 50%;
+height: 100%;
 position: relative;
 display: flex;
 
@@ -62,15 +63,24 @@ display: flex;
     left: 50%;
     transform: translate(-50%, 0%);
     width: auto;
-    max-width: 105%;
+    max-width: 108%;
     height: 112%;
+    aspect-ratio: 887 / 1024;
     object-fit: contain;
     object-position: bottom center;
     animation: ${floatPic} 3.5s ease-in-out infinite;
+    pointer-events: none;
 
     @media (max-width: 768px) {
-        max-width: 100%;
-        height: 96%;
+        max-width: 122%;
+        height: 104%;
+        left: 53%;
+    }
+
+    @media (max-width: 480px) {
+        max-width: 125%;
+        height: 102%;
+        left: 53%;
     }
 }
 `
@@ -80,6 +90,9 @@ font-size: calc(1em + 1.5vw);
 color: ${props => props.theme.body};
 padding: 2rem;
 cursor: default;
+width: 100%;
+height: 100%;
+box-sizing: border-box;
 
 display: flex;
 flex-direction: column;
@@ -92,11 +105,11 @@ h1 {
     line-height: 1.1;
 
     @media (max-width: 768px) {
-        font-size: 1.25rem;
+        font-size: 1.35rem;
     }
 
     @media (max-width: 380px) {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -105,11 +118,11 @@ h3 {
     font-weight: 600;
 
     @media (max-width: 768px) {
-        font-size: 0.88rem;
+        font-size: 0.92rem;
     }
 
     @media (max-width: 380px) {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -120,18 +133,18 @@ h3 {
     line-height: 1.45;
 
     @media (max-width: 768px) {
-        font-size: 0.58rem;
-        line-height: 1.3;
+        font-size: 0.62rem;
+        line-height: 1.32;
     }
 
     @media (max-width: 380px) {
-        font-size: 0.52rem;
-        line-height: 1.22;
+        font-size: 0.55rem;
+        line-height: 1.25;
     }
 }
 
 @media (max-width: 768px) {
-    padding: 0.6rem 0.5rem;
+    padding: 0.8rem 0.6rem;
 }
 `
 
@@ -162,14 +175,14 @@ cursor: pointer;
 
 @media (max-width: 768px) {
     margin-top: 0.4rem;
-    padding: 0.32rem 0.75rem;
-    font-size: 0.72rem;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.74rem;
 }
 
 @media (max-width: 380px) {
     margin-top: 0.25rem;
-    padding: 0.25rem 0.65rem;
-    font-size: 0.66rem;
+    padding: 0.28rem 0.7rem;
+    font-size: 0.68rem;
 }
 `
 
@@ -204,10 +217,19 @@ const Intro = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.4 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
                     style={{ width: '100%', height: '100%', position: 'relative' }}
                 >
-                    <img className="pic" src={Me} alt="Ram Prasath" />
+                    <img
+                        className="pic"
+                        src={Me}
+                        alt="Ram Prasath"
+                        width="887"
+                        height="1024"
+                        loading="eager"
+                        fetchPriority="high"
+                        decoding="sync"
+                    />
                 </motion.div>
             </SubBox>
         </Box>
